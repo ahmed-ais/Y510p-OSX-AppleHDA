@@ -7,10 +7,18 @@ cwd=$(pwd)
 clear
 
 # make sure there is no instance of AppleHDA282.kext in /S/L/E
-sudo rm -R /System/Library/Extensions/AppleHDA282.kext
+echo "Checking if there is a kext with the name 'AppleHDA282.kext' in /S/L/E"
+if [ -e '/System/Library/Extensions/AppleHDA282.kext' ]; then
+    sudo rm -R /System/Library/Extensions/AppleHDA282.kext
+	echo "   Previous copy of AppleHDA282.kext was found and deleted ..."
+else
+	echo "   No trace (good sign) ..."
+fi
 
-echo "Creating dummy AppleHDA kext that contains proper codecs ..."
+echo "Creating the dummy kext AppleHDA282.kext ..."
+echo "   Cloning AppleHDA.kext ..."
 sudo cp -R /System/Library/Extensions/AppleHDA.kext /System/Library/Extensions/AppleHDA282.kext
+echo "   Removing non needed files within the kext ..."
 cd /System/Library/Extensions/AppleHDA282.kext/Contents
 sudo rm -R PlugIns
 sudo rm -R _CodeSignature
@@ -18,7 +26,9 @@ sudo rm Resources/*.xml.zlib
 sudo rm -rf Resources/*.lproj
 sudo rm version.plist
 sudo rm MacOS/AppleHDA
+echo "   Linking AppleHDA282.kext with native AppleHDA.kext ..."
 sudo ln -s /System/Library/Extensions/AppleHDA.kext/Contents/MacOS/AppleHDA MacOS/AppleHDA
+echo "   Patching AppleHDA282.kext with proper codecs for Y510p ..."
 cd $cwd
 sudo cp layout3.xml.zlib /System/Library/Extensions/AppleHDA282.kext/Contents/Resources/
 sudo cp Platforms.xml.zlib /System/Library/Extensions/AppleHDA282.kext/Contents/Resources/
@@ -28,4 +38,4 @@ sudo sed -i "" '/<string>IOHDACodecFunction<\/string>/r HDAfix.txt' /System/Libr
 echo "Clearing kernel extensions cache ..."
 sudo touch /System/Library/Extensions
 
-echo "Done! please reboot ..."
+echo "All done! please reboot ..."
