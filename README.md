@@ -1,6 +1,6 @@
 # Y510p-OSX-AppleHDA
 
-This project aims to make the process of enabling the native AppleHDA.kext very much easier. Instead of tinkering with AppleHDA every new update or waiting for someone to prepare a patched kext, this script will do it for you in a blink of an eye!
+This project aims to make the process of enabling the native AppleHDA.kext on Lenovo Ideapad Y510p very much easier. Instead of tinkering with AppleHDA every new update or waiting for someone to prepare a patched kext, this script will do it for you in a blink of an eye!
 
 ## Background
 Usually, AppleHDA.kext will not work out of the box with hackintosh and in many cases it can be modified to support the PC audio chip. As far as I am aware of, there are currently two methods to achieve that. The first is to patch AppleHDA.kext and install it to /System/Library/Extensions which can be problematic once OSX is updated as the kext may be overridden with a newer one and the modifications are lost. The second method, introduced by Pike R Alpha in his blog, works by creating a helper/dummy kext that contain the modifications instead of directly editing AppleHDA. This method has the advantage that AppleHDA will be kept clean and the dummy kext will not be overridden by any update so it is a safe-update method.
@@ -10,7 +10,7 @@ This script is based on Pike R Alpha's idea but it automates the process for Y51
 
 **Note1: since this script will install the created dummy kext into /S/L/E, it will need root access and have to be run with sudo. I will make an update later on to allow creating the kext without installing it which will not need sudo to run anymore. For now sudo is required and it is harmless (you can investigate the code any time).**
 
-**Note2: patching AppleHDA.kexe binary is still required and should be done using Clover hot-patching as described in my guide here http://www.insanelymac.com/forum/topic/303276-guide-for-installing-os-x-yosemite-on-lenovo-ideapad-y510p/page-37#entry2172834**
+**Note2: patching AppleHDA.kext binary and setting audio layout id is still required and should be done using within Clover's config.plist as described in my guide here http://www.insanelymac.com/forum/topic/303276-guide-for-installing-os-x-yosemite-on-lenovo-ideapad-y510p/page-37#entry2172834**
 
 ## Usage
 First, download this repository from the link on your right. You can also use Terminal to clone the repo in directly:
