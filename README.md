@@ -8,7 +8,9 @@ Usually, AppleHDA.kext will not work out of the box with hackintosh and in many 
 ## How it works
 This script is based on Pike R Alpha's idea but it automates the process for Y510p. It will create a dummy kext for AppleHDA, inserts the proper audio codecs and layout, fix Info.plist for Y510p audio device, and install the kext in /S/L/E. All this is done for your pleasure without any interaction from your side. As this is an update-safe procedure, you only need to use this script once after installing OSX.
 
-**Note: since this script will install the created dummy kext into /S/L/E, it will need root access and have to be run with sudo. I will make an update later on to allow creating the kext without installing it which will not need sudo to run anymore. For now sudo is required and it is harmless (you can investigate the code any time).**
+**Note1: since this script will install the created dummy kext into /S/L/E, it will need root access and have to be run with sudo. I will make an update later on to allow creating the kext without installing it which will not need sudo to run anymore. For now sudo is required and it is harmless (you can investigate the code any time).**
+
+**Note2: patching AppleHDA.kexe binary is still required and should be done using Clover hot-patching as described in my guide here http://www.insanelymac.com/forum/topic/303276-guide-for-installing-os-x-yosemite-on-lenovo-ideapad-y510p/page-37#entry2172834**
 
 ## Usage
 First, download this repository from the link on your right. You can also use Terminal to clone the repo in directly:
