@@ -20,6 +20,9 @@ Once you have a copy of the repo (by either methods), navigate to the downloaded
 
 1. Make the script executable: `chmod +x AppleHDA282Creator.sh`
 2. Run the script: `sudo ./AppleHDA282Creator.sh`
+
+## License
+Since this work is based on others work as stated above and credited below, it should be mentioned that Pike requires to link his license for anywork based on his work. This is Pike's license: https://pikeralpha.wordpress.com/license/ 
  
 ## Credits
 Pike R Alpha: https://pikeralpha.wordpress.com/2013/12/17/new-style-of-applehda-kext-patching/ (for the idea of patching AppleHDA this way)
