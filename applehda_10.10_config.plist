@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Devices</key>
+	<dict>
+		<key>Audio</key>
+		<dict>
+			<key>Inject</key>
+			<string>3</string>
+			<key>ResetHDA</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>KernelAndKextPatches</key>
+	<dict>
+		<key>KextsToPatch</key>
+		<array>
+			<dict>
+				<key>Comment</key>
+				<string>AppleHDA patch (1 of 3)</string>
+				<key>Find</key>
+				<data>
+				hBnUEQ==
+				</data>
+				<key>Name</key>
+				<string>AppleHDA</string>
+				<key>Replace</key>
+				<data>
+				ggLsEA==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>AppleHDA patch (2 of 3)</string>
+				<key>Find</key>
+				<data>
+				hAjsEA==
+				</data>
+				<key>Name</key>
+				<string>AppleHDA</string>
+				<key>Replace</key>
+				<data>
+				AAAAAA==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>AppleHDA patch (3 of 3)</string>
+				<key>Find</key>
+				<data>
+				hQjsEA==
+				</data>
+				<key>Name</key>
+				<string>AppleHDA</string>
+				<key>Replace</key>
+				<data>
+				AAAAAA==
+				</data>
+			</dict>
+		</array>
+	</dict>
+</dict>
+</plist>
