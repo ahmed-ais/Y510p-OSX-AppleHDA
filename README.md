@@ -17,9 +17,7 @@ Once you have a copy of the repo (by either methods), navigate using Terminal to
 
 ### Injecting Audio Codecs
 From Terminal, do the following:
-
 1. Make the script executable: `chmod +x AppleHDA282Creator.sh`
-
 2. Run the script: `sudo ./AppleHDA282Creator.sh`
 
 Once the script finishes (usually instantly), a new kext will already be created in /S/L/E with the name 'AppleHDA282.kext' which is the required dummy kext.
