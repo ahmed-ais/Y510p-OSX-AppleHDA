@@ -2,7 +2,7 @@
 
 Features:
 
-  - the script will terminate if detected OS X version is niether 10.10.x nor 10.11.x to prevent miss-use if ran under different version (which is not supported).
+  - the script will terminate if detected OS X version is neither 10.10.x nor 10.11.x to prevent misuse if ran under different version od OS X (as Mavericks 10.9.x and below are not supported).
 
 Bugfixes:
 
