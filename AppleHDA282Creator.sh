@@ -8,8 +8,8 @@ clear
 
 # retrieve OS X version
 osxver=`sw_vers -productVersion`
-if [[ $osxver != 10.10* ]] && [[ $osxver != 10.11* ]]; then
-	echo "Only OS X Yosemite (10.10.x) and El Capitan (10.11.x) are supported"
+if [[ $osxver != 10.10* ]] && [[ $osxver != 10.11* ]] && [[ $osxver != 10.12* ]]; then
+	echo "Only OS X Yosemite (10.10.x), El Capitan (10.11.x) and Sierra (10.12.x) are supported"
 	exit 1
 else
 	# make sure there is no instance of AppleHDA282.kext in /S/L/E
