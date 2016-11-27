@@ -27,7 +27,7 @@ Once the script finishes (usually instantly), a new kext will already be created
 ###  Patching the AppleHDA.kext binary
 Put the patches from the attached plist files in your Clover's config.plist to hot-patch AppleHDA.kext binary:
 - For Yosemite, use the patches from applehda_10.10_config.plist
-- For El Capitan, use the patches from applehda_10.11_config.plist
+- For El Capitan and Sierra, use the patches from applehda_10.11_10.12_config.plist
 
 ### Defining Audio Layout
 To define the audio layout we will use Clover again. Open config.plist, scroll to Devices, and set the Audio section according to the attched plist file (either one, they are both the same for this part).
