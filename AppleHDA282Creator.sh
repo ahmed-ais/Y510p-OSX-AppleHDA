@@ -23,7 +23,8 @@ else
 
 	echo "Creating the dummy kext AppleHDA282.kext ..."
 	echo "   Cloning AppleHDA.kext ..."
-	sudo cp -R /System/Library/Extensions/AppleHDA.kext /System/Library/Extensions/AppleHDA282.kext
+	# the -X switch for the next cp command serve to disable copying extended attributes thus get rids of the message "unable to copy extended attributes to ..."
+	sudo cp -XR /System/Library/Extensions/AppleHDA.kext /System/Library/Extensions/AppleHDA282.kext
 	echo "   Removing non needed files within the kext ..."
 	cd /System/Library/Extensions/AppleHDA282.kext/Contents
 	sudo rm -R PlugIns
@@ -44,16 +45,17 @@ else
 	sudo cp layout3.xml.zlib /System/Library/Extensions/AppleHDA282.kext/Contents/Resources/
 	sudo cp Platforms.xml.zlib /System/Library/Extensions/AppleHDA282.kext/Contents/Resources/
 	sudo sed -i "" "s@$hdaver@999.1.1fc1@" /System/Library/Extensions/AppleHDA282.kext/Contents/Info.plist
-	sudo sed -i "" "/<string>IOHDACodecFunction<\/string>/r HDAfix.txt" /System/Library/Extensions/AppleHDA282.kext/Contents/Info.plist
+	sudo sed -i "" "/<string>IOHDACodecFunction<\/string>/r hdaconfig.txt" /System/Library/Extensions/AppleHDA282.kext/Contents/Info.plist
 
 	echo "Clearing kernel extensions cache ..."
-	sudo touch /System/Library/Extensions
-	sudo rm -rf /System/Library/Caches/com.apple.kext.caches/Startup/*
+	#sudo touch /System/Library/Extensions
+	#sudo rm -rf /System/Library/Caches/com.apple.kext.caches/Startup/*
+	sudo touch /System/Library/Extensions && sudo kextcache -u / > /dev/null 2>&1
 
-	echo "Fixing Permissions ..."
+	echo "Fixing permissions ..."
 	if [[ $osxver == 10.10* ]]; then		# yosemite
 		sudo diskutil repairPermissions / > /dev/null 2>&1
-	else 									# el-capitan
+	else 									# el-capitan and beyond
 		kextcache -system-prelinked-kernel > /dev/null 2>&1
 		kextcache -system-caches > /dev/null 2>&1
 	fi
