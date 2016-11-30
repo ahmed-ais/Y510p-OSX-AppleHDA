@@ -35,6 +35,10 @@ To define the audio layout we will use Clover again. Open config.plist, scroll t
 ### Fixing Audio Loss after Sleep/Wake
 This is important but simple. Head over Rehabman's fork of CodecCommander, download and install the kext without any modifications. Link: https://bitbucket.org/RehabMan/os-x-eapd-codec-commander.
 
+### Fixing Audio Loss (randomly)
+Sometimes you may find that there is no audio device detected by OS even on cold boot. In this case, you would have to rebuild kext cache in this specific way (using Terminal of course):
+**sudo touch /System/Library/Extensions && sudo kextcache -u /** 
+
 ## License
 Since this work is based on others work as stated above and credited below. It should be mentioned that Pike requires to link his license for anywork based on his work. This is Pike's license: https://pikeralpha.wordpress.com/license/.
  
